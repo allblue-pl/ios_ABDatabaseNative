@@ -37,7 +37,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                     transactionId = v
                 }
                 
-                db.getTableColumnInfos(tableName) { columnInfos in
+                db.getTableColumnInfos(tableName, transactionId: transactionId) { columnInfos in
                     var rColumnInfos = [AnyObject]()
                     columnInfos.forEach { columnInfo in
                         var rColumnInfo = [String: AnyObject]()
