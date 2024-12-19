@@ -52,7 +52,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                     result["columnInfos"] = rColumnInfos as AnyObject
 
                     onResult(result)
-                } execute: { error in
+                } onError: { error in
                     onError(error)
                 }
 
@@ -84,7 +84,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                     result["tableNames"] = rTableNames as AnyObject
                     
                     onResult(result)
-                } execute: { error in
+                } onError: { error in
                     onError(error)
                 }
             })
@@ -106,7 +106,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 
                 db.transaction_Finish(transactionId, commit) {
                     onResult(nil)
-                } execute: { error in
+                } onError: { error in
                     onError(error)
                 }
             })
@@ -116,7 +116,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                     result["transactionId"] = transactionId as AnyObject ?? NSNull()
                     
                     onResult(result)
-                } execute: { error in
+                } onError: { error in
                     onError(error)
                 }
             })
@@ -126,7 +126,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                     result["transactionId"] = transactionId as AnyObject ?? NSNull()
                     
                     onResult(result)
-                } execute: { error in
+                } onError: { error in
                     onError(error)
                 }
             })
@@ -154,7 +154,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 
                 db.query_Execute(query, transactionId: transactionId) {
                     onResult(nil)
-                } execute: { error in
+                } onError: { error in
                     onError(error)
                 }
             })
@@ -199,7 +199,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                     var result = [String: AnyObject]()
                     result["rows"] = rows as AnyObject
                     onResult(result)
-                } execute: { error in
+                } onError: { error in
                     onError(error)
                 }
             })
