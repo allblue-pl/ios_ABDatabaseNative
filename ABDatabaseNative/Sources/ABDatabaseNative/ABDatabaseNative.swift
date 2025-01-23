@@ -57,7 +57,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 }
 
             }
-            .addNativeCallback("GetTableNames", execute: { args, onResult, onError in
+            .addNativeCallback("GetTableNames") { args, onResult, onError in
                 guard let args else {
                     onError(ABDatabaseNativeError.cannotParseJSON("Args not set."))
                     return
@@ -87,8 +87,8 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 } onError: { error in
                     onError(error)
                 }
-            })
-            .addNativeCallback("Transaction_Finish", execute: { args, onResult, onError in
+            }
+            .addNativeCallback("Transaction_Finish") { args, onResult, onError in
                 guard let args else {
                     onError(ABDatabaseNativeError.cannotParseJSON("Args not set."))
                     return
@@ -109,8 +109,8 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 } onError: { error in
                     onError(error)
                 }
-            })
-            .addNativeCallback("Transaction_IsAutocommit", execute: { args, onResult, onError in
+            }
+            .addNativeCallback("Transaction_IsAutocommit") { args, onResult, onError in
                 db.transaction_IsAutocommit { transactionId in
                     var result = [String: AnyObject]()
                     result["transactionId"] = transactionId as AnyObject ?? NSNull()
@@ -119,8 +119,8 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 } onError: { error in
                     onError(error)
                 }
-            })
-            .addNativeCallback("Transaction_Start", execute: { args, onResult, onError in
+            }
+            .addNativeCallback("Transaction_Start") { args, onResult, onError in
                 db.transaction_Start { transactionId in
                     var result = [String: AnyObject]()
                     result["transactionId"] = transactionId as AnyObject ?? NSNull()
@@ -129,8 +129,8 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 } onError: { error in
                     onError(error)
                 }
-            })
-            .addNativeCallback("Query_Execute", execute: { args, onResult, onError in
+            }
+            .addNativeCallback("Query_Execute") { args, onResult, onError in
                 guard let args else {
                     onError(ABDatabaseNativeError.cannotParseJSON("Args not set."))
                     return
@@ -157,8 +157,8 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 } onError: { error in
                     onError(error)
                 }
-            })
-            .addNativeCallback("Query_Select", execute: { args, onResult, onError in
+            }
+            .addNativeCallback("Query_Select") { args, onResult, onError in
                 guard let args else {
                     onError(ABDatabaseNativeError.cannotParseJSON("Args not set."))
                     return
@@ -202,7 +202,7 @@ public class ABDatabaseNative: ABNativeActionsSet {
                 } onError: { error in
                     onError(error)
                 }
-            })
+            }
     }
     
     
